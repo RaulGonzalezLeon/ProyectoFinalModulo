@@ -1,12 +1,17 @@
 package com.example.proyectofinalmodulo.adapter
 
+
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectofinalmodulo.Animales
 import com.example.proyectofinalmodulo.AnimalesProvider.Companion.animalesList
+import com.example.proyectofinalmodulo.R
 
-class AnimalesAdapter: RecyclerView.Adapter<AnimalesViewHolder>() {
+class AnimalesAdapter(private val animalesList:List<Animales>): RecyclerView.Adapter<AnimalesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimalesViewHolder {
-        TODO("Not yet implemented")
+        val layoutInflater=LayoutInflater.from(parent.context)
+        return AnimalesViewHolder(layoutInflater.inflate(R.layout.item_animales,parent,false))
     }
 
     override fun getItemCount(): Int {
@@ -14,6 +19,7 @@ class AnimalesAdapter: RecyclerView.Adapter<AnimalesViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: AnimalesViewHolder, position: Int) {
-        TODO("Not yet implemented")
+       val item = animalesList[position]
+       holder.render(item)
     }
 }
