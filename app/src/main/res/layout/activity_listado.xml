@@ -2,12 +2,30 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ListadoActivity">
 
+    <EditText
+        android:id="@+id/filtro"
+        android:layout_width="407dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:hint="Introduce el nombre del animal"
+        android:inputType="text"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@+id/recycler"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recycler"/>
+        android:id="@+id/recycler"
+        android:layout_width="420dp"
+        android:layout_height="656dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filtro" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

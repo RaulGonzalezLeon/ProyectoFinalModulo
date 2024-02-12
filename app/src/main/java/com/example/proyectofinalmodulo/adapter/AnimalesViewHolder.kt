@@ -2,6 +2,7 @@ package com.example.proyectofinalmodulo.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.proyectofinalmodulo.Animales
 import com.example.proyectofinalmodulo.databinding.ItemAnimalesBinding
 
@@ -13,6 +14,7 @@ class AnimalesViewHolder(view: View): RecyclerView.ViewHolder(view) {
         binding.AlimentacionAnimal.text = animalesModel.alimentacion
         binding.AnioAnimal.text = animalesModel.anioNacimiento.toString()
         binding.DescripcionAnimal.text = animalesModel.descripcion
+        Glide.with(binding.animalFoto.context).load(animalesModel.imagen).into(binding.animalFoto)
 
 
     }
