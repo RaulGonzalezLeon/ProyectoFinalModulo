@@ -15,6 +15,12 @@
         android:theme="@style/Theme.ProyectoFinalModulo"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".EliminarAnimales"
+            android:exported="false" />
+        <activity
             android:name=".InsertarAnimales"
             android:exported="false" />
         <activity
@@ -24,8 +30,9 @@
             android:name=".RegistroActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

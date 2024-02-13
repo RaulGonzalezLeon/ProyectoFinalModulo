@@ -37,6 +37,14 @@ open class ActivityWithMenus: AppCompatActivity() {
                 true
 
             }
+            R.id.eliminar_animal -> {
+                actividadActual = 1
+                val intent = Intent(this, EliminarAnimales::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                startActivity(intent)
+                true
+
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

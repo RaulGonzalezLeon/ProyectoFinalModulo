@@ -9,6 +9,11 @@
     <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:title="Eliminar Animal"
+        android:id="@+id/eliminar_animal"/>
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:title="Cerrar Sesion"
         android:id="@+id/cerrar_sesion"/>
 </menu>
