@@ -21,11 +21,11 @@ class InsertarAnimales : AppCompatActivity() {
                 binding.tbDescripcion.text.isNotEmpty()){
                 db.collection("animales").document(binding.tbNombreAnimal.text.toString())
                     .set(mapOf(
-                        "Nombre" to binding.tbNombreAnimal.text.toString(),
-                        "Raza" to binding.tbRaza.text.toString(),
-                        "Alimentacion" to binding.tbAlimentacion.text.toString(),
-                        "AnioNacimiento" to binding.tbAnioNacimiento.text.toString(),
-                        "Descripcion" to binding.tbDescripcion.text.toString()
+                        "nombre" to binding.tbNombreAnimal.text.toString(),
+                        "raza" to binding.tbRaza.text.toString(),
+                        "alimentacion" to binding.tbAlimentacion.text.toString(),
+                        "anioNacimiento" to binding.tbAnioNacimiento.text.toString(),
+                        "descripcion" to binding.tbDescripcion.text.toString()
 
                     ))
                     .addOnSuccessListener {

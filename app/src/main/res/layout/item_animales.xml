@@ -1,71 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    android:scaleType="centerCrop"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="6dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="171dp">
 
-    <ImageView
-        android:id="@+id/animalFoto"
-        android:layout_width="134dp"
-        android:layout_height="136dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:background="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/NombreAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="16dp"
+            android:text="Nombre"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/NombreAnimal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:text="Nombre"
-        app:layout_constraintStart_toEndOf="@+id/animalFoto"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/RazaAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="6dp"
+            android:text="Raza"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/NombreAnimal" />
 
-    <TextView
-        android:id="@+id/RazaAnimal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="6dp"
-        android:text="Raza"
-        app:layout_constraintStart_toEndOf="@+id/animalFoto"
-        app:layout_constraintTop_toBottomOf="@+id/NombreAnimal" />
+        <TextView
+            android:id="@+id/AlimentacionAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="6dp"
+            android:text="Alimentacion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RazaAnimal" />
 
-    <TextView
-        android:id="@+id/AlimentacionAnimal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="6dp"
-        android:text="Alimentacion"
-        app:layout_constraintStart_toEndOf="@+id/animalFoto"
-        app:layout_constraintTop_toBottomOf="@+id/RazaAnimal" />
+        <TextView
+            android:id="@+id/AnioAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="6dp"
+            android:text="Año"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AlimentacionAnimal" />
 
-    <TextView
-        android:id="@+id/AnioAnimal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="6dp"
-        android:text="Año"
-        app:layout_constraintStart_toEndOf="@+id/animalFoto"
-        app:layout_constraintTop_toBottomOf="@+id/AlimentacionAnimal" />
-
-    <TextView
-        android:id="@+id/DescripcionAnimal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="6dp"
-        android:text="Descripcion"
-        app:layout_constraintStart_toEndOf="@+id/animalFoto"
-        app:layout_constraintTop_toBottomOf="@+id/AnioAnimal" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/DescripcionAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="6dp"
+            android:text="Descripcion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AnioAnimal" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
