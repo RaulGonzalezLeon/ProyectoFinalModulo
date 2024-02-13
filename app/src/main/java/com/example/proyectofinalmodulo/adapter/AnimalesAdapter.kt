@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectofinalmodulo.Animales
-import com.example.proyectofinalmodulo.AnimalesProvider.Companion.animalesList
 import com.example.proyectofinalmodulo.R
 
 class AnimalesAdapter(private var animalesList:List<Animales>): RecyclerView.Adapter<AnimalesViewHolder>() {

@@ -6,4 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".InsertarAnimales">
 
+    <EditText
+        android:id="@+id/tbNombreAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="90dp"
+        android:ems="10"
+        android:hint="Nombre del Animal"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/tbRaza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="42dp"
+        android:ems="10"
+        android:hint="Raza del Animal"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbNombreAnimal" />
+
+    <EditText
+        android:id="@+id/tbAlimentacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="42dp"
+        android:ems="10"
+        android:hint="Alimentacion del Animal"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbRaza" />
+
+    <EditText
+        android:id="@+id/tbAnioNacimiento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="42dp"
+        android:ems="10"
+        android:hint="Año Nacimiento"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbAlimentacion" />
+
+    <EditText
+        android:id="@+id/tbDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="42dp"
+        android:ems="10"
+        android:hint="Descripcion"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbAnioNacimiento" />
+
+    <Button
+        android:id="@+id/bGuardarAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="56dp"
+        android:text="GUARDAR ANIMAL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbDescripcion" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
