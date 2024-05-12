@@ -15,6 +15,10 @@
         android:ems="10"
         android:hint="Nombre del Animal"
         android:inputType="text"
+        android:background="@drawable/edittext_background"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:padding="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,6 +31,10 @@
         android:ems="10"
         android:hint="Raza del Animal"
         android:inputType="text"
+        android:background="@drawable/edittext_background"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:padding="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbNombreAnimal" />
 
@@ -39,6 +47,10 @@
         android:ems="10"
         android:hint="Alimentacion del Animal"
         android:inputType="text"
+        android:background="@drawable/edittext_background"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:padding="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbRaza" />
 
@@ -51,6 +63,10 @@
         android:ems="10"
         android:hint="Año Nacimiento"
         android:inputType="text"
+        android:background="@drawable/edittext_background"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:padding="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbAlimentacion" />
 
@@ -63,6 +79,10 @@
         android:ems="10"
         android:hint="Descripcion"
         android:inputType="text"
+        android:background="@drawable/edittext_background"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:padding="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbAnioNacimiento" />
 
