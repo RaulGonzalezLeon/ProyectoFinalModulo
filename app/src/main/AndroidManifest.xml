@@ -15,8 +15,11 @@
         android:theme="@style/Theme.ProyectoFinalModulo"
         tools:targetApi="31">
         <activity
+            android:name=".InsertarFormularioAdoptar"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".EliminarAnimales"
             android:exported="false" />

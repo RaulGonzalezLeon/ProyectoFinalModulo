@@ -21,6 +21,10 @@ open class ActivityWithMenus: AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val i = getIntent()
+        val tipoUsuario = i.getExtras()?.getString("privilegios")
+
+
         return when (item.itemId) {
             R.id.agregar_animal -> {
                 actividadActual = 0

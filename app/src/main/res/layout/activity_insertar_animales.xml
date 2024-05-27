@@ -91,11 +91,22 @@
         android:id="@+id/bGuardarAnimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="56dp"
-        android:text="GUARDAR ANIMAL"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="152dp"
         android:background="#A5D6A7"
+        android:text="GUARDAR ANIMAL"
         android:textColor="#1B5E20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbDescripcion" />
+
+    <EditText
+        android:id="@+id/tbFechaIngreso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:inputType="date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbDescripcion" />
 

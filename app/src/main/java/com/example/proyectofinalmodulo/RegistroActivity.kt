@@ -19,9 +19,10 @@ class RegistroActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         binding.bRegistrar.setOnClickListener {
             if(binding.tbCorreo.text.isNotEmpty() && binding.tbContrasena.text.isNotEmpty()
-                && binding.tbNombre.text.isNotEmpty() && binding.tbApellidos.text.isNotEmpty()){
+                && binding.tbNombre.text.isNotEmpty() && binding.tbApellidos.text.isNotEmpty()
+                && binding.tbRolUsuario.text.isNotEmpty()){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(
-                    binding.tbCorreo.text.toString(),binding.tbContrasena.text.toString()
+                    binding.tbCorreo.text.toString(),binding.tbContrasena.text.toString(),
                 ).addOnCompleteListener {
                     if (it.isSuccessful){
 
@@ -30,6 +31,7 @@ class RegistroActivity : AppCompatActivity() {
                                 "Nombre" to binding.tbNombre.text.toString(),
                                 "Apellidos" to binding.tbApellidos.text.toString(),
                                 "Telefono" to binding.tbTelefono.text.toString(),
+                                "Rol" to binding.tbRolUsuario.text.toString()
                             ))
 
 
