@@ -15,8 +15,6 @@ open class ActivityWithMenus: AppCompatActivity() {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_principal,menu)
 
-
-
         return true
     }
 
@@ -44,6 +42,14 @@ open class ActivityWithMenus: AppCompatActivity() {
             R.id.eliminar_animal -> {
                 actividadActual = 1
                 val intent = Intent(this, EliminarAnimales::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                startActivity(intent)
+                true
+
+            }
+            R.id.formulario_adoptar -> {
+                actividadActual = 1
+                val intent = Intent(this, InsertarFormularioAdoptar::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                 startActivity(intent)
                 true

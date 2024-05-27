@@ -56,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tbMotivoAdopcion" />
 
     <EditText
-        android:id="@+id/tbCorreoAdaptante"
+        android:id="@+id/tbCorreoAdoptante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
@@ -89,7 +89,7 @@
         android:hint="Indica el tipo de vivienda"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbCorreoAdaptante" />
+        app:layout_constraintTop_toBottomOf="@+id/tbCorreoAdoptante" />
 
     <Button
         android:id="@+id/bEnviarFormulario"
