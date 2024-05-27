@@ -7,4 +7,110 @@
     android:layout_height="match_parent"
     tools:context=".InsertarFormularioAdoptar">
 
+    <EditText
+        android:id="@+id/tbNombreAdoptante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Indica tu Nombre"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/tbApellidosAdoptante"
+        android:layout_width="209dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Indica tus Apelidos"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbNombreAdoptante" />
+
+    <EditText
+        android:id="@+id/tbMotivoAdopcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Indica el motivo por el cual quieres adoptar"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbViviendaAdoptante" />
+
+    <EditText
+        android:id="@+id/tbExperienciaAdoptar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Indica si tienes experiencia con animales adoptados"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbMotivoAdopcion" />
+
+    <EditText
+        android:id="@+id/tbCorreoAdaptante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Indica tu correo electronico"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbTelefonoAdoptante" />
+
+    <EditText
+        android:id="@+id/tbTelefonoAdoptante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Indica tu numero de telefono"
+        android:inputType="phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbApellidosAdoptante" />
+
+    <EditText
+        android:id="@+id/tbViviendaAdoptante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Indica el tipo de vivienda"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbCorreoAdaptante" />
+
+    <Button
+        android:id="@+id/bEnviarFormulario"
+        android:layout_width="294dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:text="ENVIAR FORMULARIO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbMasAnimales" />
+
+    <EditText
+        android:id="@+id/tbMasAnimales"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:hint="Indica si tienes Animales en casa, en el caso de que tengas, cuales"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbExperienciaAdoptar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
