@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectofinalmodulo.databinding.ActivityInsertarFormularioAdoptarBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
-class InsertarFormularioAdoptar : AppCompatActivity() {
+class InsertarFormularioAdoptar : ActivityWithMenus() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityInsertarFormularioAdoptarBinding.inflate(layoutInflater)

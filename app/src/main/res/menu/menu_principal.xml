@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_view">
 
-
+    <item
+        android:id="@+id/mostrar_listado"
+        android:title="Mostrar Listado" />
     <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,4 +24,5 @@
     <item
         android:id="@+id/formulario_adoptar"
         android:title="Formulario Adoptar" />
+
 </menu>

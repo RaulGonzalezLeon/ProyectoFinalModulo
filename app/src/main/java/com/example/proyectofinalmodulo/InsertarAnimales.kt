@@ -18,14 +18,15 @@ class InsertarAnimales : AppCompatActivity() {
         binding.bGuardarAnimal.setOnClickListener {
             if( binding.tbNombreAnimal.text.isNotEmpty() && binding.tbRaza.text.isNotEmpty() &&
                 binding.tbAlimentacion.text.isNotEmpty() && binding.tbAnioNacimiento.text.isNotEmpty() &&
-                binding.tbDescripcion.text.isNotEmpty()){
+                binding.tbDescripcion.text.isNotEmpty() && binding.tbFechaIngreso.text.isNotEmpty()){
                 db.collection("animales").document(binding.tbNombreAnimal.text.toString())
                     .set(mapOf(
                         "nombre" to binding.tbNombreAnimal.text.toString(),
                         "raza" to binding.tbRaza.text.toString(),
                         "alimentacion" to binding.tbAlimentacion.text.toString(),
                         "anioNacimiento" to binding.tbAnioNacimiento.text.toString(),
-                        "descripcion" to binding.tbDescripcion.text.toString()
+                        "descripcion" to binding.tbDescripcion.text.toString(),
+                        "fechaIngreso" to binding.tbFechaIngreso.text.toString()
 
                     ))
                     .addOnSuccessListener {
@@ -38,6 +39,7 @@ class InsertarAnimales : AppCompatActivity() {
                         binding.tbAlimentacion.text = null
                         binding.tbAnioNacimiento.text = null
                         binding.tbDescripcion.text = null
+                        binding.tbFechaIngreso.text = null
                     }
 
             }else{ Toast.makeText(this, "Algun campo esta vacio", Toast.LENGTH_SHORT).show()}

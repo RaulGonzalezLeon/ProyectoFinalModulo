@@ -14,5 +14,6 @@ class AnimalesViewHolder(view: View): RecyclerView.ViewHolder(view) {
         binding.AlimentacionAnimal.text = animalesModel.alimentacion
         binding.AnioAnimal.text = animalesModel.anioNacimiento
         binding.DescripcionAnimal.text = animalesModel.descripcion
+        binding.AnioIngreso.text = animalesModel.fechaIngreso
     }
 }
