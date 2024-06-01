@@ -16,7 +16,7 @@
 
     <style name="SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/pastel_green</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/imginicio</item>
         <item name="postSplashScreenTheme">@style/Theme.ProyectoFinalModulo</item>
     </style>
 </resources>
