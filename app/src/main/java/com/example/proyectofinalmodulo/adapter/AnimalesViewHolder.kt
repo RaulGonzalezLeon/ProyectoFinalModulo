@@ -8,6 +8,7 @@ import com.example.proyectofinalmodulo.databinding.ItemAnimalesBinding
 
 class AnimalesViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val binding = ItemAnimalesBinding.bind(view)
+
     fun render(animalesModel: Animales){
         binding.NombreAnimal.text = animalesModel.nombre
         binding.RazaAnimal.text = animalesModel.raza
@@ -15,5 +16,11 @@ class AnimalesViewHolder(view: View): RecyclerView.ViewHolder(view) {
         binding.AnioAnimal.text = animalesModel.anioNacimiento
         binding.DescripcionAnimal.text = animalesModel.descripcion
         binding.AnioIngreso.text = animalesModel.fechaIngreso
+
+        // Cargar la imagen usando Glide
+        Glide.with(binding.insertedImage.context)
+            .load(animalesModel.imagen)
+            .centerCrop()
+            .into(binding.insertedImage)
     }
 }

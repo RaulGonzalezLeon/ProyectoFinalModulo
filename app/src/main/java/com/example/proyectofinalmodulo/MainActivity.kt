@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         title = "LoginUsuario"
 
+
         binding.bAcceder.setOnClickListener {
             login()
             obtenerPermisos()

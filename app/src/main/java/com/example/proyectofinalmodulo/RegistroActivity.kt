@@ -10,6 +10,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class RegistroActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegistroBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistroBinding.inflate(layoutInflater)
@@ -18,31 +19,36 @@ class RegistroActivity : AppCompatActivity() {
 
         val db = FirebaseFirestore.getInstance()
         binding.bRegistrar.setOnClickListener {
-            if(binding.tbCorreo.text.isNotEmpty() && binding.tbContrasena.text.isNotEmpty()
-                && binding.tbNombre.text.isNotEmpty() && binding.tbApellidos.text.isNotEmpty()
-                && binding.tbRolUsuario.text.isNotEmpty()){
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(
-                    binding.tbCorreo.text.toString(),binding.tbContrasena.text.toString(),
-                ).addOnCompleteListener {
-                    if (it.isSuccessful){
+            val correo = binding.tbCorreo.text.toString()
+            val contrasena = binding.tbContrasena.text.toString()
+            val nombre = binding.tbNombre.text.toString()
+            val apellidos = binding.tbApellidos.text.toString()
+            val rol = binding.tbRolUsuario.text.toString()
+            val telefono = binding.tbTelefono.text.toString()
 
-                        db.collection("usuarios").document(binding.tbCorreo.text.toString())
+            if (ValidationUtils.esCorreoValido(correo) && ValidationUtils.esContrasenaValida(contrasena)
+                && ValidationUtils.esNombreValido(nombre) && ValidationUtils.esApellidosValido(apellidos)
+                && ValidationUtils.esRolValido(rol) && ValidationUtils.esTelefonoValido(telefono)) {
+
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        db.collection("usuarios").document(correo)
                             .set(mapOf(
-                                "Nombre" to binding.tbNombre.text.toString(),
-                                "Apellidos" to binding.tbApellidos.text.toString(),
-                                "Telefono" to binding.tbTelefono.text.toString(),
-                                "Rol" to binding.tbRolUsuario.text.toString()
+                                "Nombre" to nombre,
+                                "Apellidos" to apellidos,
+                                "Telefono" to telefono,
+                                "Rol" to rol
                             ))
 
-
-
-                        val intent = Intent(this,ListadoActivity::class.java)
+                        val intent = Intent(this, ListadoActivity::class.java)
                         startActivity(intent)
-                    } else{
+                    } else {
                         Toast.makeText(this, "Error en el registro del nuevo usuario", Toast.LENGTH_SHORT).show()
                     }
                 }
-            }else {Toast.makeText(this, "Algun campo vacio", Toast.LENGTH_SHORT).show()}
+            } else {
+                Toast.makeText(this, "Algun campo vacio o invalido", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
