@@ -102,15 +102,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="@color/dark_green"
         android:text="GUARDAR ANIMAL"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbDescripcion" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
     <EditText
         android:id="@+id/tbFechaIngreso"
@@ -127,35 +126,19 @@
         android:textColor="@color/black"
         android:textColorHint="@color/olive_green"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bGuardarAnimal" />
-
-    <Button
-        android:id="@+id/bAbrirGaleria"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/dark_green"
-        android:text="ABRIR GALERÍA"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbFechaIngreso" />
+        app:layout_constraintTop_toBottomOf="@+id/tbDescripcion" />
 
-    <ImageView
-        android:id="@+id/animalImageView"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="187dp"
+        android:layout_height="159dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:contentDescription="Animal Image"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/bAbrirGaleria"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/pickimg" /> <!-- Placeholder image -->
+        app:layout_constraintTop_toBottomOf="@+id/tbFechaIngreso"
+        app:srcCompat="@drawable/imginicio" /> <!-- Placeholder image -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

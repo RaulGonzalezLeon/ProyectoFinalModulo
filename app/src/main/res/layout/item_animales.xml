@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
-    android:scaleType="centerCrop"
     app:cardElevation="8dp"
     app:cardCornerRadius="16dp"
     app:cardBackgroundColor="@color/pastel_green">
@@ -22,122 +21,95 @@
             android:layout_height="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/fcard"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Nuevo ImageView para la imagen que se inserte -->
-        <ImageView
-            android:id="@+id/insertedImage"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:visibility="gone"/>
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/NombreAnimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:text="Nombre"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imagenAnimal"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/RazaAnimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:text="Raza"
             android:textColor="@color/dark_green"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/NombreAnimal" />
+            app:layout_constraintStart_toEndOf="@+id/imagenAnimal"
+            app:layout_constraintTop_toBottomOf="@id/NombreAnimal" />
 
         <TextView
             android:id="@+id/AlimentacionAnimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:text="Alimentacion"
             android:textColor="@color/dark_green"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RazaAnimal" />
+            app:layout_constraintStart_toEndOf="@+id/imagenAnimal"
+            app:layout_constraintTop_toBottomOf="@id/RazaAnimal" />
 
         <TextView
             android:id="@+id/AnioAnimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:text="Año"
             android:textColor="@color/dark_green"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AlimentacionAnimal" />
+            app:layout_constraintStart_toStartOf="@+id/AlimentacionAnimal"
+            app:layout_constraintTop_toBottomOf="@id/AlimentacionAnimal" />
 
         <TextView
             android:id="@+id/DescripcionAnimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:text="Descripcion"
             android:textColor="@color/dark_green"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/AlimentacionAnimal"
             app:layout_constraintTop_toBottomOf="@+id/AnioAnimal" />
-
-        <Button
-            android:id="@+id/bAdoptar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="ADOPTAR"
-            android:backgroundTint="@color/green"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toStartOf="@+id/bApadrinar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DescripcionAnimal"
-            app:layout_constraintWidth_percent="0.45" />
-
-        <Button
-            android:id="@+id/bApadrinar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="APADRINAR"
-            android:backgroundTint="@color/olive_green"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/bAdoptar"
-            app:layout_constraintTop_toBottomOf="@+id/DescripcionAnimal"
-            app:layout_constraintWidth_percent="0.45" />
 
         <TextView
             android:id="@+id/AnioIngreso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="228dp"
+            android:layout_marginTop="12dp"
             android:text="FechaIngreso"
             android:textColor="@color/dark_green"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bAdoptar" />
+            app:layout_constraintTop_toBottomOf="@id/DescripcionAnimal" />
+
+        <ImageView
+            android:id="@+id/imagenAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/backgroundImage"
+            app:layout_constraintStart_toStartOf="@+id/backgroundImage"
+            app:layout_constraintTop_toTopOf="@+id/backgroundImage"
+            tools:srcCompat="@tools:sample/avatars" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

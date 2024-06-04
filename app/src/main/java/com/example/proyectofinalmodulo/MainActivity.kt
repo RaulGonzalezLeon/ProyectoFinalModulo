@@ -56,10 +56,12 @@ class MainActivity : AppCompatActivity() {
                 if (documentSnapshot.exists()) {
                     Log.d("Correo", correo)
                     val privilegios = documentSnapshot.getString("Rol")
-                    Log.d("Privilegio", privilegios.toString())
+
 
                     val intent = Intent(this, ActivityWithMenus::class.java)
                     intent.putExtra("privilegios", privilegios)
+                    Log.d("Privilegio", privilegios.toString())
+
 
                     /*if (privilegios == "Usuario") {
                        binding.navView.menu.findItem(R.id.agregar_animal).isVisible =
@@ -68,10 +70,10 @@ class MainActivity : AppCompatActivity() {
 
                     }
                     if (privilegios == "Admin") {
-                        //binding.navView.menu.findItem(R.id.agregar_animal).isVisible =
-                         //   true
-                       // binding.navView.menu.findItem(R.id.eliminar_animal).isVisible
-                        //= true
+                        binding.navView.menu.findItem(R.id.agregar_animal).isVisible =
+                          true
+                        binding.navView.menu.findItem(R.id.eliminar_animal).isVisible
+                        = true
                     }*/
                 }
                 Log.d("Usuario", "Datos Usuario: ${documentSnapshot.data}")
