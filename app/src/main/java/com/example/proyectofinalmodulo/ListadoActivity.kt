@@ -1,17 +1,15 @@
 package com.example.proyectofinalmodulo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectofinalmodulo.AnimalesProvider.Companion.animalesList
-import com.example.proyectofinalmodulo.adapter.AnimalesAdapter
+import com.example.proyectofinalmodulo.AdapterAnimales.AnimalesProvider.Companion.animalesList
+import com.example.proyectofinalmodulo.AdapterAnimales.Animales
+import com.example.proyectofinalmodulo.AdapterAnimales.AnimalesAdapter
 import com.example.proyectofinalmodulo.databinding.ActivityListadoBinding
-import com.example.proyectofinalmodulo.databinding.ActivityRegistroBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
 class ListadoActivity : ActivityWithMenus() {

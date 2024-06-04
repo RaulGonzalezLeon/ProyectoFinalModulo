@@ -25,10 +25,10 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".EliminarAnimales"
+            android:name=".AccionesAnimales.EliminarAnimales"
             android:exported="false" />
         <activity
-            android:name=".InsertarAnimales"
+            android:name=".AccionesAnimales.InsertarAnimales"
             android:exported="false" />
         <activity
             android:name=".ListadoActivity"

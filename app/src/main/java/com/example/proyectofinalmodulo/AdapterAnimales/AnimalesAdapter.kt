@@ -1,10 +1,9 @@
-package com.example.proyectofinalmodulo.adapter
+package com.example.proyectofinalmodulo.AdapterAnimales
 
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectofinalmodulo.Animales
 import com.example.proyectofinalmodulo.R
 
 class AnimalesAdapter(private var animalesList:List<Animales>): RecyclerView.Adapter<AnimalesViewHolder>() {

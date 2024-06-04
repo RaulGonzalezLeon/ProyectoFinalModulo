@@ -1,8 +1,9 @@
-package com.example.proyectofinalmodulo
+package com.example.proyectofinalmodulo.AccionesAnimales
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.proyectofinalmodulo.ListadoActivity
 import com.example.proyectofinalmodulo.databinding.ActivityEliminarAnimalesBinding
 import com.google.firebase.firestore.FirebaseFirestore
 

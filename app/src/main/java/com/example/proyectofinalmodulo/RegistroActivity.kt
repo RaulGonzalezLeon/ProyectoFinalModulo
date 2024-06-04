@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.proyectofinalmodulo.Validaciones.ValidacionesUsuario
 import com.example.proyectofinalmodulo.databinding.ActivityRegistroBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -26,9 +27,9 @@ class RegistroActivity : AppCompatActivity() {
             val rol = binding.tbRolUsuario.text.toString()
             val telefono = binding.tbTelefono.text.toString()
 
-            if (ValidationUtils.esCorreoValido(correo) && ValidationUtils.esContrasenaValida(contrasena)
-                && ValidationUtils.esNombreValido(nombre) && ValidationUtils.esApellidosValido(apellidos)
-                && ValidationUtils.esRolValido(rol) && ValidationUtils.esTelefonoValido(telefono)) {
+            if (ValidacionesUsuario.esCorreoValido(correo) && ValidacionesUsuario.esContrasenaValida(contrasena)
+                && ValidacionesUsuario.esNombreValido(nombre) && ValidacionesUsuario.esApellidosValido(apellidos)
+                && ValidacionesUsuario.esRolValido(rol) && ValidacionesUsuario.esTelefonoValido(telefono)) {
 
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener {
                     if (it.isSuccessful) {

@@ -1,4 +1,4 @@
-package com.example.proyectofinalmodulo
+package com.example.proyectofinalmodulo.AdapterAnimales
 
 class AnimalesProvider {
     companion object{

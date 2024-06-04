@@ -1,4 +1,4 @@
-package com.example.proyectofinalmodulo
+package com.example.proyectofinalmodulo.AccionesAnimales
 
 import android.content.Intent
 import android.net.Uri
@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.example.proyectofinalmodulo.ListadoActivity
 import com.example.proyectofinalmodulo.databinding.ActivityInsertarAnimalesBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -95,7 +96,3 @@ class InsertarAnimales : AppCompatActivity() {
         }
     }
 }
-
-
-
-

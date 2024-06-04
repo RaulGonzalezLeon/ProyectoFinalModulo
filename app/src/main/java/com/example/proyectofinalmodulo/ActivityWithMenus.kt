@@ -6,6 +6,8 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.example.proyectofinalmodulo.AccionesAnimales.EliminarAnimales
+import com.example.proyectofinalmodulo.AccionesAnimales.InsertarAnimales
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardBackgroundColor="@color/pastel_green">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/fcard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/NombreAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Nombre"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imagenAnimal"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/RazaAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Raza"
+            android:textColor="@color/dark_green"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/imagenAnimal"
+            app:layout_constraintTop_toBottomOf="@id/NombreAnimal" />
+
+        <TextView
+            android:id="@+id/AlimentacionAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Alimentacion"
+            android:textColor="@color/dark_green"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/imagenAnimal"
+            app:layout_constraintTop_toBottomOf="@id/RazaAnimal" />
+
+        <TextView
+            android:id="@+id/AnioAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Año"
+            android:textColor="@color/dark_green"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/AlimentacionAnimal"
+            app:layout_constraintTop_toBottomOf="@id/AlimentacionAnimal" />
+
+        <TextView
+            android:id="@+id/DescripcionAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Descripcion"
+            android:textColor="@color/dark_green"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/AlimentacionAnimal"
+            app:layout_constraintTop_toBottomOf="@+id/AnioAnimal" />
+
+        <TextView
+            android:id="@+id/AnioIngreso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="228dp"
+            android:layout_marginTop="12dp"
+            android:text="FechaIngreso"
+            android:textColor="@color/dark_green"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/DescripcionAnimal" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

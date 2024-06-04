@@ -2,7 +2,6 @@ package com.example.proyectofinalmodulo
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectofinalmodulo.databinding.ActivityInsertarFormularioAdoptarBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -23,6 +22,7 @@ class InsertarFormularioAdoptar : ActivityWithMenus() {
         binding.bEnviarFormulario.setOnClickListener {
             if (isFormValid()) {
                 saveFormData()
+                sendEmailWithFormData()
             } else {
                 Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show()
             }
@@ -74,6 +74,32 @@ class InsertarFormularioAdoptar : ActivityWithMenus() {
                 // Operación fallida, mostrar un mensaje de error
                 Toast.makeText(this, "Error al guardar el formulario: ${e.message}", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun sendEmailWithFormData() {
+        val formData = """
+            Nombre: ${binding.tbNombreAdoptante.text}
+            Apellidos: ${binding.tbApellidosAdoptante.text}
+            Teléfono: ${binding.tbTelefonoAdoptante.text}
+            Correo: ${binding.tbCorreoAdoptante.text}
+            Tipo de Vivienda: ${binding.tbViviendaAdoptante.text}
+            Motivo de Adopción: ${binding.tbMotivoAdopcion.text}
+            Experiencia al Adoptar: ${binding.tbExperienciaAdoptar.text}
+            Otros Animales: ${binding.tbMasAnimales.text}
+        """.trimIndent()
+
+        val emailIntent = Intent(Intent.ACTION_SEND).apply {
+            type = "message/rfc822"
+            putExtra(Intent.EXTRA_EMAIL, arrayOf(binding.tbCorreoAdoptante.text.toString())) // Puede cambiarse al correo deseado
+            putExtra(Intent.EXTRA_SUBJECT, "Formulario de Adopción")
+            putExtra(Intent.EXTRA_TEXT, formData)
+        }
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Enviar correo usando..."))
+        } catch (ex: android.content.ActivityNotFoundException) {
+            Toast.makeText(this, "No hay aplicaciones de correo instaladas.", Toast.LENGTH_SHORT).show()
+        }
     }
 }
 

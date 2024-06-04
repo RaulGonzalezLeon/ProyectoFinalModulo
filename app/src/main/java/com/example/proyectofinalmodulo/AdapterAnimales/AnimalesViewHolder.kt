@@ -1,9 +1,8 @@
-package com.example.proyectofinalmodulo.adapter
+package com.example.proyectofinalmodulo.AdapterAnimales
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.proyectofinalmodulo.Animales
 import com.example.proyectofinalmodulo.databinding.ItemAnimalesBinding
 
 class AnimalesViewHolder(view: View): RecyclerView.ViewHolder(view) {

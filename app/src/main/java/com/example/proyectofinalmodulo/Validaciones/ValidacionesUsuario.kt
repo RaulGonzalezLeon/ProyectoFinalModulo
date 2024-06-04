@@ -1,6 +1,6 @@
-package com.example.proyectofinalmodulo
+package com.example.proyectofinalmodulo.Validaciones
 
-object ValidationUtils {
+object ValidacionesUsuario {
 
     fun esCorreoValido(correo: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(correo).matches()
