@@ -2,12 +2,13 @@ package com.example.proyectofinalmodulo
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectofinalmodulo.databinding.ActivityInsertarFormularioAdoptarBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import android.widget.Toast
 
-class InsertarFormularioAdoptar : ActivityWithMenus() {
+class InsertarFormularioAdoptar : AppCompatActivity() {
     private lateinit var binding: ActivityInsertarFormularioAdoptarBinding
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
@@ -22,7 +23,6 @@ class InsertarFormularioAdoptar : ActivityWithMenus() {
         binding.bEnviarFormulario.setOnClickListener {
             if (isFormValid()) {
                 saveFormData()
-                sendEmailWithFormData()
             } else {
                 Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show()
             }
@@ -33,7 +33,6 @@ class InsertarFormularioAdoptar : ActivityWithMenus() {
         val currentUser = auth.currentUser
         currentUser?.let {
             val email = it.email
-
             binding.tbCorreoAdoptante.setText(email)
         }
     }
@@ -65,13 +64,9 @@ class InsertarFormularioAdoptar : ActivityWithMenus() {
             .document(binding.tbCorreoAdoptante.text.toString())
             .set(formData)
             .addOnSuccessListener {
-                // Operación exitosa, enviar a la nueva actividad
-                val intent = Intent(this, ListadoActivity::class.java)
-                startActivity(intent)
-                finish()
+                sendEmailWithFormData()
             }
             .addOnFailureListener { e ->
-                // Operación fallida, mostrar un mensaje de error
                 Toast.makeText(this, "Error al guardar el formulario: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
@@ -96,10 +91,14 @@ class InsertarFormularioAdoptar : ActivityWithMenus() {
         }
 
         try {
-            startActivity(Intent.createChooser(emailIntent, "Enviar correo usando..."))
+            startActivity(Intent.createChooser(emailIntent, "Enviar correo con:"))
+            finish() // Cierra la actividad después de intentar enviar el correo
         } catch (ex: android.content.ActivityNotFoundException) {
             Toast.makeText(this, "No hay aplicaciones de correo instaladas.", Toast.LENGTH_SHORT).show()
         }
     }
 }
+
+
+
 

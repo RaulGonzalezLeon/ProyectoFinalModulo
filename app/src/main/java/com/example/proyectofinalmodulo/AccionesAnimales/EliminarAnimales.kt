@@ -19,9 +19,17 @@ class EliminarAnimales : AppCompatActivity() {
             db.collection("animales")
                 .document(binding.tbNombreEliminar.text.toString())
                 .delete()
-
-            val intent = Intent(this, ListadoActivity::class.java)
-            startActivity(intent)
+                .addOnSuccessListener {
+                    val intent = Intent(this, ListadoActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    finish() // Cierra la activity actual
+                }
+                .addOnFailureListener { e ->
+                    // Manejo de errores
+                    e.printStackTrace()
+                }
         }
     }
 }
+

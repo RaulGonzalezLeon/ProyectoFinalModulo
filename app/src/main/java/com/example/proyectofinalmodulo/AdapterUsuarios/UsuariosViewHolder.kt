@@ -4,22 +4,17 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.proyectofinalmodulo.databinding.ItemAnimalesBinding
+import com.example.proyectofinalmodulo.databinding.ItemUsuariosBinding
 
 class UsuariosViewHolder(view: View): RecyclerView.ViewHolder(view) {
-    val binding = ItemAnimalesBinding.bind(view)
+    val binding = ItemUsuariosBinding.bind(view)
 
     fun render(usuariosModel: Usuarios) {
         binding.NombreAnimal.text = usuariosModel.nombre
-        binding.RazaAnimal.text = usuariosModel.raza
-        binding.AlimentacionAnimal.text = usuariosModel.alimentacion
-        binding.AnioAnimal.text = usuariosModel.anioNacimiento
-        binding.DescripcionAnimal.text = usuariosModel.descripcion
-        binding.AnioIngreso.text = usuariosModel.fechaIngreso
-
-        // Cargar la imagen usando Glide
-        Glide.with(binding.imagenAnimal.context)
-            .load(usuariosModel.imagenUrl)
-            .into(binding.imagenAnimal)
+        binding.ApellidosUsuario.text = usuariosModel.apellidos
+        binding.CorreoUsuario.text = usuariosModel.correo
+        binding.RolUsuario.text = usuariosModel.rol
+        binding.TelefonoUsuario.text = usuariosModel.telefono
     }
 }
 

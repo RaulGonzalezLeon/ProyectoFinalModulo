@@ -50,17 +50,17 @@ open class ActivityWithMenus: AppCompatActivity() {
                     startActivity(intent)
                     true
             }
-            R.id.cerrar_sesion -> {
-                    actividadActual = 2
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
-                    startActivity(intent)
-                    true
+            R.id.eliminar_animal -> {
+                actividadActual = 2
+                val intent = Intent(this, EliminarAnimales::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                startActivity(intent)
+                true
 
             }
-            R.id.eliminar_animal -> {
+            R.id.cerrar_sesion -> {
                     actividadActual = 3
-                    val intent = Intent(this, EliminarAnimales::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                     startActivity(intent)
                     true

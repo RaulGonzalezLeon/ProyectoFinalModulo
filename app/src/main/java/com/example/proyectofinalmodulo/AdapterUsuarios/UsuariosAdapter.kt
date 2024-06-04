@@ -9,7 +9,7 @@ import com.example.proyectofinalmodulo.R
 class UsuariosAdapter(private var usuariosList:List<Usuarios>): RecyclerView.Adapter<UsuariosViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsuariosViewHolder {
         val layoutInflater=LayoutInflater.from(parent.context)
-        return UsuariosViewHolder(layoutInflater.inflate(R.layout.item_animales,parent,false))
+        return UsuariosViewHolder(layoutInflater.inflate(R.layout.item_usuarios,parent,false))
     }
 
     override fun getItemCount(): Int {
