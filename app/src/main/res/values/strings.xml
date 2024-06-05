@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ProyectoFinalModulo</string>
+    <string name="animal_image">Animal Image</string>
+    <string name="animal_nombre_placeholder">Nombre del animal</string>
+    <string name="animal_raza_placeholder">Raza del animal</string>
+    <string name="animal_alimentacion_placeholder">Alimentación del animal</string>
+    <string name="animal_anio_nacimiento_placeholder">Año de nacimiento del animal</string>
+    <string name="animal_descripcion_placeholder">Descripción del animal</string>
+    <string name="animal_fecha_ingreso_placeholder">Fecha de ingreso del animal</string>
 </resources>

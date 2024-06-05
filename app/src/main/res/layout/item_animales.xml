@@ -8,7 +8,7 @@
     android:layout_marginVertical="8dp"
     app:cardElevation="8dp"
     app:cardCornerRadius="16dp"
-    app:cardBackgroundColor="@color/pastel_green">
+    app:cardBackgroundColor="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,78 +26,8 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/NombreAnimal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="Nombre"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/imagenAnimal"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/RazaAnimal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:text="Raza"
-            android:textColor="@color/dark_green"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/imagenAnimal"
-            app:layout_constraintTop_toBottomOf="@id/NombreAnimal" />
-
-        <TextView
-            android:id="@+id/AlimentacionAnimal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:text="Alimentacion"
-            android:textColor="@color/dark_green"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/imagenAnimal"
-            app:layout_constraintTop_toBottomOf="@id/RazaAnimal" />
-
-        <TextView
-            android:id="@+id/AnioAnimal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Año"
-            android:textColor="@color/dark_green"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/AlimentacionAnimal"
-            app:layout_constraintTop_toBottomOf="@id/AlimentacionAnimal" />
-
-        <TextView
-            android:id="@+id/DescripcionAnimal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Descripcion"
-            android:textColor="@color/dark_green"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/AlimentacionAnimal"
-            app:layout_constraintTop_toBottomOf="@+id/AnioAnimal" />
-
-        <TextView
-            android:id="@+id/AnioIngreso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="228dp"
-            android:layout_marginTop="12dp"
-            android:text="FechaIngreso"
-            android:textColor="@color/dark_green"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/DescripcionAnimal" />
+            app:layout_constraintVertical_bias="0.0"
+            android:alpha="0.2" />
 
         <ImageView
             android:id="@+id/imagenAnimal"
@@ -106,10 +36,128 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="@+id/backgroundImage"
             app:layout_constraintStart_toStartOf="@+id/backgroundImage"
             app:layout_constraintTop_toTopOf="@+id/backgroundImage"
+            app:layout_constraintVertical_bias="0.0"
             tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/NombreAnimal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Nombre"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imagenAnimal"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/RazaAnimal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Raza"
+            android:textColor="@color/dark_green"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imagenAnimal"
+            app:layout_constraintTop_toBottomOf="@id/NombreAnimal" />
+
+        <TextView
+            android:id="@+id/AlimentacionAnimal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Alimentacion"
+            android:textColor="@color/dark_green"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imagenAnimal"
+            app:layout_constraintTop_toBottomOf="@id/RazaAnimal" />
+
+        <TextView
+            android:id="@+id/AnioAnimal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Año"
+            android:textColor="@color/dark_green"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imagenAnimal"
+            app:layout_constraintTop_toBottomOf="@id/AlimentacionAnimal" />
+
+        <TextView
+            android:id="@+id/DescripcionAnimal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Descripcion"
+            android:textColor="@color/dark_green"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imagenAnimal"
+            app:layout_constraintTop_toBottomOf="@id/AnioAnimal" />
+
+        <TextView
+            android:id="@+id/numeroChip"
+            android:layout_width="315dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="numeroChip"
+            android:textColor="@color/dark_green"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imagenAnimal"
+            app:layout_constraintTop_toBottomOf="@id/DescripcionAnimal" />
+
+        <Button
+            android:id="@+id/btnAdoptar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Adoptar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/teal_700"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/numeroChip" />
+
+        <Button
+            android:id="@+id/btnApadrinar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Apadrinar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/teal_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/numeroChip" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
+
+
+

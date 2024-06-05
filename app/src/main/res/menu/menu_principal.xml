@@ -14,6 +14,11 @@
     <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:title="Actualizar Animal"
+        android:id="@+id/actualizar_animal"/>
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:title="Eliminar Animal"
         android:id="@+id/eliminar_animal"/>
     <item
@@ -21,9 +26,7 @@
         android:layout_height="wrap_content"
         android:title="Cerrar Sesion"
         android:id="@+id/cerrar_sesion"/>
-    <item
-        android:id="@+id/formulario_adoptar"
-        android:title="Formulario Adoptar" />
+
 
 
 </menu>

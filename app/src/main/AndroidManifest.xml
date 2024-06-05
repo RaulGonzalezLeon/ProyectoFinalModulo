@@ -19,6 +19,12 @@
         android:theme="@style/Theme.ProyectoFinalModulo"
         tools:targetApi="34">
         <activity
+            android:name=".AccionesAnimales.ActualizarAnimales"
+            android:exported="false" />
+        <activity
+            android:name=".VerDatosAnimal"
+            android:exported="false" />
+        <activity
             android:name=".ListadoUsuarios"
             android:exported="false" />
         <activity

@@ -17,7 +17,7 @@ class EliminarAnimales : AppCompatActivity() {
 
         binding.bEliminar.setOnClickListener{
             db.collection("animales")
-                .document(binding.tbNombreEliminar.text.toString())
+                .document(binding.tbChipEliminar.text.toString())
                 .delete()
                 .addOnSuccessListener {
                     val intent = Intent(this, ListadoActivity::class.java)

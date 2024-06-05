@@ -7,14 +7,14 @@
     tools:context=".AccionesAnimales.EliminarAnimales">
 
     <EditText
-        android:id="@+id/tbNombreEliminar"
+        android:id="@+id/tbChipEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
         android:layout_marginTop="192dp"
         android:ems="10"
+        android:hint="Introduce el chip de del animal"
         android:inputType="text"
-        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,5 +26,5 @@
         android:layout_marginTop="143dp"
         android:text="ELIMINAR ANIMAL"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbNombreEliminar" />
+        app:layout_constraintTop_toBottomOf="@+id/tbChipEliminar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

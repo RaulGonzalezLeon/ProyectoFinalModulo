@@ -24,8 +24,6 @@ class ListadoActivity : ActivityWithMenus() {
         val decoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
         binding.recycler.addItemDecoration(decoration)
 
-
-
         binding.filtro.addTextChangedListener { filtro ->
             val filtroAnimales = animalesList.filter { animales ->
                 animales.nombre.lowercase().contains(filtro.toString().lowercase())}
