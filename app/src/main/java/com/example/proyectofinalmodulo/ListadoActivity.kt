@@ -20,15 +20,10 @@ class ListadoActivity : ActivityWithMenus() {
         super.onCreate(savedInstanceState)
         val binding = ActivityListadoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setTitle("ListadoAnimales")
 
         val decoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
         binding.recycler.addItemDecoration(decoration)
-
-        binding.filtro.addTextChangedListener { filtro ->
-            val filtroAnimales = animalesList.filter { animales ->
-                animales.nombre.lowercase().contains(filtro.toString().lowercase())}
-            adapter.actualizarAnimales(filtroAnimales)
-        }
         
         listaAnimales = ArrayList()
         recycler = binding.recycler

@@ -85,7 +85,7 @@ class InsertarFormularioAdoptar : AppCompatActivity() {
 
         val emailIntent = Intent(Intent.ACTION_SEND).apply {
             type = "message/rfc822"
-            putExtra(Intent.EXTRA_EMAIL, arrayOf(binding.tbCorreoAdoptante.text.toString())) // Puede cambiarse al correo deseado
+            putExtra(Intent.EXTRA_EMAIL, arrayOf("refugionanimales770@gmail.com")) // Puede cambiarse al correo deseado
             putExtra(Intent.EXTRA_SUBJECT, "Formulario de Adopción")
             putExtra(Intent.EXTRA_TEXT, formData)
         }

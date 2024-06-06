@@ -31,20 +31,26 @@ class RegistroActivity : AppCompatActivity() {
                 && ValidacionesUsuario.esNombreValido(nombre) && ValidacionesUsuario.esApellidosValido(apellidos)
                 && ValidacionesUsuario.esRolValido(rol) && ValidacionesUsuario.esTelefonoValido(telefono)) {
 
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        db.collection("usuarios").document(correo)
-                            .set(mapOf(
-                                "Nombre" to nombre,
-                                "Apellidos" to apellidos,
-                                "Telefono" to telefono,
-                                "Rol" to rol
-                            ))
+                ValidacionesUsuario.existeCorreo(correo) { existe ->
+                    if (!existe) {
+                        FirebaseAuth.getInstance().createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                db.collection("usuarios").document(correo)
+                                    .set(mapOf(
+                                        "Nombre" to nombre,
+                                        "Apellidos" to apellidos,
+                                        "Telefono" to telefono,
+                                        "Rol" to rol
+                                    ))
 
-                        val intent = Intent(this, ListadoActivity::class.java)
-                        startActivity(intent)
+                                val intent = Intent(this, ListadoActivity::class.java)
+                                startActivity(intent)
+                            } else {
+                                Toast.makeText(this, "Error en el registro del nuevo usuario", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                     } else {
-                        Toast.makeText(this, "Error en el registro del nuevo usuario", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "El correo ya está registrado", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
@@ -53,3 +59,5 @@ class RegistroActivity : AppCompatActivity() {
         }
     }
 }
+
+

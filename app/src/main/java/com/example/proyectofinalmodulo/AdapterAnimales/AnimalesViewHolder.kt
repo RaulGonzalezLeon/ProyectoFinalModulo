@@ -15,7 +15,6 @@ class AnimalesViewHolder(view: View): RecyclerView.ViewHolder(view) {
         binding.RazaAnimal.text = animalesModel.raza
         binding.AlimentacionAnimal.text = animalesModel.alimentacion
         binding.AnioAnimal.text = animalesModel.anioNacimiento
-        binding.DescripcionAnimal.text = animalesModel.descripcion
         binding.numeroChip.text = animalesModel.numeroChip
 
         // Cargar la imagen usando Glide
@@ -24,12 +23,6 @@ class AnimalesViewHolder(view: View): RecyclerView.ViewHolder(view) {
             .into(binding.imagenAnimal)
 
         binding.btnAdoptar.setOnClickListener {
-            val context = it.context
-            val intent = Intent(context, InsertarFormularioAdoptar::class.java)
-            context.startActivity(intent)
-        }
-
-        binding.btnApadrinar.setOnClickListener {
             val context = it.context
             val intent = Intent(context, InsertarFormularioAdoptar::class.java)
             context.startActivity(intent)

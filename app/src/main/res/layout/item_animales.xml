@@ -97,19 +97,6 @@
             app:layout_constraintTop_toBottomOf="@id/AlimentacionAnimal" />
 
         <TextView
-            android:id="@+id/DescripcionAnimal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:text="Descripcion"
-            android:textColor="@color/dark_green"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imagenAnimal"
-            app:layout_constraintTop_toBottomOf="@id/AnioAnimal" />
-
-        <TextView
             android:id="@+id/numeroChip"
             android:layout_width="315dp"
             android:layout_height="0dp"
@@ -121,33 +108,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imagenAnimal"
-            app:layout_constraintTop_toBottomOf="@id/DescripcionAnimal" />
+            app:layout_constraintTop_toBottomOf="@id/AnioAnimal" />
 
         <Button
             android:id="@+id/btnAdoptar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/teal_700"
             android:text="Adoptar"
             android:textColor="@color/white"
-            android:backgroundTint="@color/teal_700"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="@+id/backgroundImage"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/numeroChip" />
-
-        <Button
-            android:id="@+id/btnApadrinar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:text="Apadrinar"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/teal_700"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/numeroChip" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenAnimal" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"

@@ -20,8 +20,4 @@ class AnimalesAdapter(private var animalesList: List<Animales>) : RecyclerView.A
         holder.render(item)
     }
 
-    fun actualizarAnimales(listaAnimales: List<Animales>) {
-        this.animalesList = listaAnimales
-        notifyDataSetChanged()
-    }
 }

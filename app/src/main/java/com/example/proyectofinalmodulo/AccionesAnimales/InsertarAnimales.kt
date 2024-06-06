@@ -38,9 +38,9 @@ class InsertarAnimales : AppCompatActivity() {
         binding = ActivityInsertarAnimalesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val db = FirebaseFirestore.getInstance()
-        val storage = FirebaseStorage.getInstance()
-        val storageRef = storage.reference
+        setTitle("IsertarAnimales")
+
+
 
         imagen = binding.imageButton
 
@@ -50,8 +50,8 @@ class InsertarAnimales : AppCompatActivity() {
 
         binding.bGuardarAnimal.setOnClickListener {
             if (binding.tbNombreAnimal.text.isNotEmpty() && binding.tbRaza.text.isNotEmpty() &&
-                binding.tbAlimentacion.text.isNotEmpty() && binding.tbAnioNacimiento.text.isNotEmpty() &&
-                binding.tbDescripcion.text.isNotEmpty() && binding.tbNumeroChip.text.isNotEmpty()
+                binding.tbAlimentacion.text.isNotEmpty() && binding.tbEdadAnimal.text.isNotEmpty() &&
+                binding.tbNumeroChip.text.isNotEmpty()
             ) {
                 showConfirmationDialog()
             } else {
@@ -83,8 +83,7 @@ class InsertarAnimales : AppCompatActivity() {
             binding.tbNombreAnimal.text.toString(),
             binding.tbRaza.text.toString(),
             binding.tbAlimentacion.text.toString(),
-            binding.tbAnioNacimiento.text.toString(),
-            binding.tbDescripcion.text.toString()
+            binding.tbEdadAnimal.text.toString()
         ) { areInputsValid ->
             if (areInputsValid) {
                 chipValidator.validateChipNumber(binding.tbNumeroChip.text.toString()) { isValid ->
@@ -100,8 +99,7 @@ class InsertarAnimales : AppCompatActivity() {
                                             "nombre" to binding.tbNombreAnimal.text.toString(),
                                             "raza" to binding.tbRaza.text.toString(),
                                             "alimentacion" to binding.tbAlimentacion.text.toString(),
-                                            "anioNacimiento" to binding.tbAnioNacimiento.text.toString(),
-                                            "descripcion" to binding.tbDescripcion.text.toString(),
+                                            "edadAnimal" to binding.tbEdadAnimal.text.toString(),
                                             "numeroChip" to binding.tbNumeroChip.text.toString(),
                                             "imagenUrl" to uri.toString() // Añadir la URL de la imagen
                                         )

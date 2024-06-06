@@ -1,21 +1,23 @@
 package com.example.proyectofinalmodulo.Validaciones
 
+import com.google.firebase.firestore.FirebaseFirestore
+
 object ValidacionesUsuario {
 
     fun esCorreoValido(correo: String): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(correo).matches()
+        return correo.isNotEmpty() && android.util.Patterns.EMAIL_ADDRESS.matcher(correo).matches()
     }
 
     fun esContrasenaValida(contrasena: String): Boolean {
-        return contrasena.length >= 6 // Ejemplo de regla: la contraseña debe tener al menos 6 caracteres
+        return contrasena.isNotEmpty() && contrasena.length >= 6
     }
 
     fun esNombreValido(nombre: String): Boolean {
-        return nombre.isNotEmpty() && nombre.length <= 30
+        return nombre.isNotEmpty()
     }
 
     fun esApellidosValido(apellidos: String): Boolean {
-        return apellidos.isNotEmpty() && apellidos.length <= 40
+        return apellidos.isNotEmpty()
     }
 
     fun esRolValido(rol: String): Boolean {
@@ -23,6 +25,16 @@ object ValidacionesUsuario {
     }
 
     fun esTelefonoValido(telefono: String): Boolean {
-        return telefono.length == 9 && android.util.Patterns.PHONE.matcher(telefono).matches()
+        return telefono.isNotEmpty() && android.util.Patterns.PHONE.matcher(telefono).matches()
+    }
+
+    fun existeCorreo(correo: String, callback: (Boolean) -> Unit) {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("usuarios").document(correo).get().addOnSuccessListener { document ->
+            callback(document.exists())
+        }.addOnFailureListener {
+            callback(false)
+        }
     }
 }
+

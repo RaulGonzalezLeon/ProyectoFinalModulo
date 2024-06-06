@@ -10,7 +10,6 @@ class ValidacionesAnimales(private val context: Context) {
         raza: String,
         alimentacion: String,
         anioNacimiento: String,
-        descripcion: String,
         callback: (Boolean) -> Unit
     ) {
         if (!validateNombre(nombre)) {
@@ -37,12 +36,6 @@ class ValidacionesAnimales(private val context: Context) {
             return
         }
 
-        if (!validateDescripcion(descripcion)) {
-            showToast("La descripción no debe superar los 200 caracteres")
-            callback(false)
-            return
-        }
-
         callback(true)
     }
 
@@ -60,10 +53,6 @@ class ValidacionesAnimales(private val context: Context) {
 
     private fun validateAnioNacimiento(anioNacimiento: String): Boolean {
         return anioNacimiento.all { it.isDigit() }
-    }
-
-    private fun validateDescripcion(descripcion: String): Boolean {
-        return descripcion.length <= 200
     }
 
     private fun showToast(message: String) {

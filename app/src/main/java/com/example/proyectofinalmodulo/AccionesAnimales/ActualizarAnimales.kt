@@ -13,20 +13,20 @@ class ActualizarAnimales : AppCompatActivity() {
         val binding = ActivityActualizarAnimalesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setTitle("ActualizarAnimal")
+
         val db = FirebaseFirestore.getInstance()
 
-        binding.bActualizar.setOnClickListener{
-            val nombre = binding.tbNombreActualizar.text.toString()
+        binding.bActualizar.setOnClickListener {
+            val chipNumber = binding.tbChipActualizar.text.toString()
             val alimentacion = binding.tbAlimentacionActualizar.text.toString()
-            val descripcion = binding.tbDescripcionActualizar.text.toString()
 
             val animalData = hashMapOf(
                 "alimentacion" to alimentacion,
-                "descripcion" to descripcion
             )
 
             db.collection("animales")
-                .document(nombre)
+                .document(chipNumber)
                 .update(animalData as Map<String, Any>)
                 .addOnSuccessListener {
                     val intent = Intent(this, ListadoActivity::class.java)
@@ -41,3 +41,4 @@ class ActualizarAnimales : AppCompatActivity() {
         }
     }
 }
+

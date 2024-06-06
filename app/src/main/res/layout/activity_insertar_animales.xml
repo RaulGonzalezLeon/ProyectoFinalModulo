@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tbRaza" />
 
     <EditText
-        android:id="@+id/tbAnioNacimiento"
+        android:id="@+id/tbEdadAnimal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -97,24 +97,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbAlimentacion" />
 
-    <EditText
-        android:id="@+id/tbDescripcion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edittext_background"
-        android:ems="10"
-        android:hint="Descripcion"
-        android:inputType="text"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/olive_green"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbAnioNacimiento" />
-
     <!-- Placeholder image -->
 
     <ImageButton
@@ -122,10 +104,10 @@
         android:layout_width="187dp"
         android:layout_height="159dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="97dp"
         android:background="@drawable/edittext_background"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbDescripcion"
+        app:layout_constraintTop_toBottomOf="@+id/tbEdadAnimal"
         app:srcCompat="@drawable/imginicio" />
 
     <Button

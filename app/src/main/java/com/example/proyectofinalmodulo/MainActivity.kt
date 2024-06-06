@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.bAcceder.setOnClickListener {
             login()
-            obtenerPermisos()
         }
         binding.bRegistrarse.setOnClickListener {
             startActivity(Intent(this, RegistroActivity::class.java))
@@ -45,42 +44,4 @@ class MainActivity : AppCompatActivity() {
                 }
         } else {Toast.makeText(this, "Algun campo esta Vacio", Toast.LENGTH_SHORT).show()}
     }
-
-    private fun obtenerPermisos () {
-        val auth = FirebaseAuth.getInstance()
-        val correo = auth.currentUser?.email.toString()
-        Log.d("Correo", correo)
-        var db = FirebaseFirestore.getInstance()
-        db.collection("usuarios").document(correo).get()
-            .addOnSuccessListener { documentSnapshot ->
-                if (documentSnapshot.exists()) {
-                    Log.d("Correo", correo)
-                    val privilegios = documentSnapshot.getString("Rol")
-
-
-                    val intent = Intent(this, ActivityWithMenus::class.java)
-                    intent.putExtra("privilegios", privilegios)
-                    Log.d("Privilegio", privilegios.toString())
-
-
-                    /*if (privilegios == "Usuario") {
-                       binding.navView.menu.findItem(R.id.agregar_animal).isVisible =
-                            false
-                        binding.navView.menu.findItem(R.id.eliminar_animal).isVisible = false
-
-                    }
-                    if (privilegios == "Admin") {
-                        binding.navView.menu.findItem(R.id.agregar_animal).isVisible =
-                          true
-                        binding.navView.menu.findItem(R.id.eliminar_animal).isVisible
-                        = true
-                    }*/
-                }
-                Log.d("Usuario", "Datos Usuario: ${documentSnapshot.data}")
-            }
-    }
-
-
-
-
 }
