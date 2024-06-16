@@ -11,13 +11,13 @@ class AnimalesAdapter(private var animalesList: List<Animales>) : RecyclerView.A
         return AnimalesViewHolder(layoutInflater.inflate(R.layout.item_animales, parent, false))
     }
 
-    override fun getItemCount(): Int {
-        return animalesList.size
-    }
-
     override fun onBindViewHolder(holder: AnimalesViewHolder, position: Int) {
         val item = animalesList[position]
         holder.render(item)
+    }
+
+    override fun getItemCount(): Int {
+        return animalesList.size
     }
 
 }

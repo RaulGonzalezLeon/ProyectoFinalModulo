@@ -4,7 +4,9 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.ImageButton
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -22,6 +24,8 @@ class InsertarAnimales : AppCompatActivity() {
 
     private lateinit var binding: ActivityInsertarAnimalesBinding
     private lateinit var imagen: ImageButton
+    private lateinit var spinnerRaza: Spinner
+    private lateinit var spinnerAlimentacion: Spinner
     private var imageUri: Uri? = null
 
     private val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
@@ -38,19 +42,22 @@ class InsertarAnimales : AppCompatActivity() {
         binding = ActivityInsertarAnimalesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setTitle("IsertarAnimales")
-
-
+        setTitle("Insertar Animales")
 
         imagen = binding.imageButton
+        spinnerRaza = binding.spinnerRaza
+        spinnerAlimentacion = binding.spinnerAlimentacion
+
+        // Configurar los Spinners
+        setupSpinners()
 
         imagen.setOnClickListener {
             pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
 
         binding.bGuardarAnimal.setOnClickListener {
-            if (binding.tbNombreAnimal.text.isNotEmpty() && binding.tbRaza.text.isNotEmpty() &&
-                binding.tbAlimentacion.text.isNotEmpty() && binding.tbEdadAnimal.text.isNotEmpty() &&
+            if (binding.tbNombreAnimal.text.isNotEmpty() &&
+                binding.tbEdadAnimal.text.isNotEmpty() &&
                 binding.tbNumeroChip.text.isNotEmpty()
             ) {
                 showConfirmationDialog()
@@ -58,6 +65,31 @@ class InsertarAnimales : AppCompatActivity() {
                 Toast.makeText(this, "Algun campo esta vacio", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun setupSpinners() {
+        // Configurar el spinner de alimentación
+        val alimentaciones = listOf("Semi-Humeda", "Cocida Casera", "Hipoalergénicas", "Medicadas") // Añade más opciones según sea necesario
+        val alimentacionAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, alimentaciones)
+        alimentacionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerAlimentacion.adapter = alimentacionAdapter
+
+        // Cargar las razas desde Firestore
+        loadRazasFromFirestore()
+    }
+
+    private fun loadRazasFromFirestore() {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("razas").get()
+            .addOnSuccessListener { result ->
+                val razas = result.map { it.getString("nombre") ?: "" }
+                val razaAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, razas)
+                razaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerRaza.adapter = razaAdapter
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Error al cargar las razas", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun showConfirmationDialog() {
@@ -81,8 +113,8 @@ class InsertarAnimales : AppCompatActivity() {
 
         inputValidator.validateInputs(
             binding.tbNombreAnimal.text.toString(),
-            binding.tbRaza.text.toString(),
-            binding.tbAlimentacion.text.toString(),
+            spinnerRaza.selectedItem.toString(),
+            spinnerAlimentacion.selectedItem.toString(),
             binding.tbEdadAnimal.text.toString()
         ) { areInputsValid ->
             if (areInputsValid) {
@@ -97,8 +129,8 @@ class InsertarAnimales : AppCompatActivity() {
                                     imageRef.downloadUrl.addOnSuccessListener { uri ->
                                         val animalData = mapOf(
                                             "nombre" to binding.tbNombreAnimal.text.toString(),
-                                            "raza" to binding.tbRaza.text.toString(),
-                                            "alimentacion" to binding.tbAlimentacion.text.toString(),
+                                            "raza" to spinnerRaza.selectedItem.toString(),
+                                            "alimentacion" to spinnerAlimentacion.selectedItem.toString(),
                                             "edadAnimal" to binding.tbEdadAnimal.text.toString(),
                                             "numeroChip" to binding.tbNumeroChip.text.toString(),
                                             "imagenUrl" to uri.toString() // Añadir la URL de la imagen
@@ -137,6 +169,8 @@ class InsertarAnimales : AppCompatActivity() {
         finish()  // Cerrar la actividad después de añadir el animal
     }
 }
+
+
 
 
 

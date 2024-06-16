@@ -40,7 +40,8 @@ class RegistroActivity : AppCompatActivity() {
                                         "Nombre" to nombre,
                                         "Apellidos" to apellidos,
                                         "Telefono" to telefono,
-                                        "Rol" to rol
+                                        "Rol" to rol,
+                                        "correo" to correo
                                     ))
 
                                 val intent = Intent(this, ListadoActivity::class.java)

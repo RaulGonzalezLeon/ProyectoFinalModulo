@@ -5,7 +5,12 @@
 
     <item
         android:id="@+id/mostrar_listado"
-        android:title="Mostrar Listado" />
+        android:title="Listado Animales" />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Listado Usuarios"
+        android:id="@+id/listado_usuarios"/>
     <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,6 +27,11 @@
         android:layout_height="wrap_content"
         android:title="Eliminar Animal"
         android:id="@+id/eliminar_animal"/>
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Agregar Raza"
+        android:id="@+id/agregar_raza"/>
     <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

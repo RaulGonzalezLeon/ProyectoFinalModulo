@@ -7,6 +7,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectofinalmodulo.AccionesAnimales.ActualizarAnimales
+import com.example.proyectofinalmodulo.AccionesAnimales.AgregarRazasActivity
 import com.example.proyectofinalmodulo.AccionesAnimales.EliminarAnimales
 import com.example.proyectofinalmodulo.AccionesAnimales.InsertarAnimales
 import com.google.firebase.auth.FirebaseAuth
@@ -35,23 +36,37 @@ open class ActivityWithMenus: AppCompatActivity() {
                 startActivity(intent)
                 true
             }
-            R.id.agregar_animal -> {
+            R.id.listado_usuarios -> {
                 actividadActual = 1
+                val intent = Intent(this, ListadoUsuarios::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                startActivity(intent)
+                true
+            }
+            R.id.agregar_animal -> {
+                actividadActual = 2
                 val intent = Intent(this, InsertarAnimales::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                 startActivity(intent)
                 true
             }
             R.id.actualizar_animal -> {
-                actividadActual = 2
+                actividadActual = 3
                 val intent = Intent(this, ActualizarAnimales::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                 startActivity(intent)
                 true
             }
             R.id.eliminar_animal -> {
-                actividadActual = 3
+                actividadActual = 4
                 val intent = Intent(this, EliminarAnimales::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                startActivity(intent)
+                true
+            }
+            R.id.agregar_raza -> {
+                actividadActual = 5
+                val intent = Intent(this, AgregarRazasActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                 startActivity(intent)
                 true

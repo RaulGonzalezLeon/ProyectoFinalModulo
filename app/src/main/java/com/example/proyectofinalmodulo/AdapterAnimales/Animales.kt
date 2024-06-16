@@ -4,5 +4,5 @@ data class Animales(val numeroChip:String="",
                     val nombre:String="",
                     val raza:String="",
                     val alimentacion:String="",
-                    val anioNacimiento:String="",
+                    val edadAnimal:String="",
                     val imagenUrl: String = "")

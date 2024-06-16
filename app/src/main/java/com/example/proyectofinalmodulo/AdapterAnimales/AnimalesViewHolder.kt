@@ -14,7 +14,7 @@ class AnimalesViewHolder(view: View): RecyclerView.ViewHolder(view) {
         binding.NombreAnimal.text = animalesModel.nombre
         binding.RazaAnimal.text = animalesModel.raza
         binding.AlimentacionAnimal.text = animalesModel.alimentacion
-        binding.AnioAnimal.text = animalesModel.anioNacimiento
+        binding.AnioAnimal.text = animalesModel.edadAnimal
         binding.numeroChip.text = animalesModel.numeroChip
 
         // Cargar la imagen usando Glide

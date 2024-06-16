@@ -7,4 +7,20 @@
     <string name="animal_anio_nacimiento_placeholder">Año de nacimiento del animal</string>
     <string name="animal_descripcion_placeholder">Descripción del animal</string>
     <string name="animal_fecha_ingreso_placeholder">Fecha de ingreso del animal</string>
+
+    <string-array name="raza_animal_array">
+        <item>Pastor Alemán</item>
+        <item>Bulldog</item>
+        <item>Siames</item>
+        <item>Persa</item>
+        <item>Otra</item>
+    </string-array>
+
+    <string-array name="alimentacion_animal_array">
+        <item>Pienso</item>
+        <item>Comida húmeda</item>
+        <item>Barf</item>
+        <item>Mixta</item>
+        <item>Otra</item>
+    </string-array>
 </resources>
