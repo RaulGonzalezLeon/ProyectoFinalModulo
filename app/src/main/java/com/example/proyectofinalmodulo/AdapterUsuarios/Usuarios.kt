@@ -1,7 +1,7 @@
 package com.example.proyectofinalmodulo.AdapterUsuarios
 
-data class Usuarios(val nombre:String = "",
-                    val apellidos:String = "",
+data class Usuarios(val Nombre:String = "",
+                    val Apellidos:String = "",
                     val correo:String = "",
-                    val telefono:String = "",
-                    val rol:String = "")
+                    val Telefono:String = "",
+                    val Rol:String = "")
