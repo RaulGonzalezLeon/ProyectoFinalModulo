@@ -1,9 +1,12 @@
 package com.example.proyectofinalmodulo.AccionesAnimales
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectofinalmodulo.ListadoActivity
+import com.example.proyectofinalmodulo.R
 import com.example.proyectofinalmodulo.databinding.ActivityActualizarAnimalesBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -17,9 +20,29 @@ class ActualizarAnimales : AppCompatActivity() {
 
         val db = FirebaseFirestore.getInstance()
 
+        val spinnerChip = findViewById<Spinner>(R.id.spinnerChipActualizar)
+        val spinnerAlimentacion = findViewById<Spinner>(R.id.spinnerAlimentacionActualizar)
+
+        // Poblar spinnerChip con números de chip
+        db.collection("animales").get().addOnSuccessListener { documents ->
+            val chipNumbers = ArrayList<String>()
+            for (document in documents) {
+                document.getString("numeroChip")?.let { chipNumbers.add(it) }
+            }
+            val adapterChip = ArrayAdapter(this, android.R.layout.simple_spinner_item, chipNumbers)
+            adapterChip.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerChip.adapter = adapterChip
+        }
+
+        // Configurar el spinnerAlimentacion con opciones estáticas
+        val alimentacionOptions = listOf("Semi-Humeda", "Cocida Casera", "Hipoalergénicas", "Medicadas")
+        val adapterAlimentacion = ArrayAdapter(this, android.R.layout.simple_spinner_item, alimentacionOptions)
+        adapterAlimentacion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerAlimentacion.adapter = adapterAlimentacion
+
         binding.bActualizar.setOnClickListener {
-            val chipNumber = binding.tbChipActualizar.text.toString()
-            val alimentacion = binding.tbAlimentacionActualizar.text.toString()
+            val chipNumber = spinnerChip.selectedItem.toString()
+            val alimentacion = spinnerAlimentacion.selectedItem.toString()
 
             val animalData = hashMapOf(
                 "alimentacion" to alimentacion,
@@ -41,4 +64,3 @@ class ActualizarAnimales : AppCompatActivity() {
         }
     }
 }
-

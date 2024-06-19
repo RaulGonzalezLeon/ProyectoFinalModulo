@@ -2,6 +2,9 @@ package com.example.proyectofinalmodulo
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectofinalmodulo.databinding.ActivityInsertarFormularioAdoptarBinding
@@ -12,12 +15,16 @@ class InsertarFormularioAdoptar : AppCompatActivity() {
     private lateinit var binding: ActivityInsertarFormularioAdoptarBinding
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
+    private lateinit var animalList: MutableList<String>
+    private lateinit var selectedAnimal: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityInsertarFormularioAdoptarBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        animalList = mutableListOf()
+        setupSpinner()
         infoCorreo()
 
         binding.bEnviarFormulario.setOnClickListener {
@@ -25,6 +32,34 @@ class InsertarFormularioAdoptar : AppCompatActivity() {
                 saveFormData()
             } else {
                 Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setupSpinner() {
+        val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, animalList)
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinner.adapter = spinnerAdapter
+
+        db.collection("animales").get().addOnSuccessListener { result ->
+            for (document in result) {
+                val nombre = document.getString("nombre") ?: ""
+                val numeroChip = document.getString("numeroChip") ?: ""
+                val animalInfo = "$nombre - $numeroChip"
+                animalList.add(animalInfo)
+            }
+            spinnerAdapter.notifyDataSetChanged()
+        }.addOnFailureListener { exception ->
+            Toast.makeText(this, "Error al cargar los animales: ${exception.message}", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                selectedAnimal = animalList[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Handle case where no item is selected if needed
             }
         }
     }
@@ -45,7 +80,8 @@ class InsertarFormularioAdoptar : AppCompatActivity() {
                 binding.tbViviendaAdoptante.text.isNotEmpty() &&
                 binding.tbMotivoAdopcion.text.isNotEmpty() &&
                 binding.tbExperienciaAdoptar.text.isNotEmpty() &&
-                binding.tbMasAnimales.text.isNotEmpty()
+                binding.tbMasAnimales.text.isNotEmpty() &&
+                this::selectedAnimal.isInitialized
     }
 
     private fun saveFormData() {
@@ -57,7 +93,8 @@ class InsertarFormularioAdoptar : AppCompatActivity() {
             "TipoVivienda" to binding.tbViviendaAdoptante.text.toString(),
             "MotivoAdopcion" to binding.tbMotivoAdopcion.text.toString(),
             "ExperienciaAdoptar" to binding.tbExperienciaAdoptar.text.toString(),
-            "MasAnimales" to binding.tbMasAnimales.text.toString()
+            "MasAnimales" to binding.tbMasAnimales.text.toString(),
+            "AnimalSeleccionado" to selectedAnimal
         )
 
         db.collection("formularioAdoptar")
@@ -81,12 +118,13 @@ class InsertarFormularioAdoptar : AppCompatActivity() {
             Motivo de Adopción: ${binding.tbMotivoAdopcion.text}
             Experiencia al Adoptar: ${binding.tbExperienciaAdoptar.text}
             Otros Animales: ${binding.tbMasAnimales.text}
+            Animal Seleccionado: $selectedAnimal
         """.trimIndent()
 
         val emailIntent = Intent(Intent.ACTION_SEND).apply {
             type = "message/rfc822"
             putExtra(Intent.EXTRA_EMAIL, arrayOf("refugioanimales770@gmail.com")) // Puede cambiarse al correo deseado
-            putExtra(Intent.EXTRA_SUBJECT, "Formulario de Adopción")
+            putExtra(Intent.EXTRA_SUBJECT, "Formulario de Adopción - $selectedAnimal")
             putExtra(Intent.EXTRA_TEXT, formData)
         }
 
@@ -98,6 +136,7 @@ class InsertarFormularioAdoptar : AppCompatActivity() {
         }
     }
 }
+
 
 
 
